@@ -16,5 +16,18 @@ namespace projetfinal
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void firstPageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 elc = new Form2();
+            elc.MdiParent = this;
+            elc.Show();
+
+        }
     }
 }
