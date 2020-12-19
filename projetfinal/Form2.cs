@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace projetfinal
 {
@@ -16,11 +17,14 @@ namespace projetfinal
         {
             InitializeComponent();
         }
+        //Instanciation de la classe AdoNET
+        
+        AdoNET Ado;
 
         private void Form2_Load(object sender, EventArgs e)
         {
             // Instancier un objet Ado
-            adoNET Ado = new adoNET();
+             Ado = new AdoNET();
             //Début Query
             //Écriture de la requête Sql 
             string Query = "SELECT * FROM Articles";
@@ -39,5 +43,33 @@ namespace projetfinal
             this.dataGridView1.DataSource = Ado.DtArticles;
 
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            //Parcourir les lignes du DataTable DtEtudiants
+            foreach (DataRow row in Ado.DtArticles.Rows)
+            {
+                //Si le numéro de l'étudiant existe dans la table, Afficher les informations de l'étudiant 
+                if (row[0].ToString() == textBoxRecherche.Text)
+                {
+                    MessageBox.Show("Le numéro de référence : " + row[0] + "\n"
+                        + "description : " + row[1] + "\n"
+                        + "Le prix unitaire: " + row[2] + "\n"+ "Le nombre en inventaire : " + row[3] + "\n"+ "Le nom du vendeur : " + row[4] + "\n",
+                        "Résultat de la recherche", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                
+            }
+        }
+
+
+
+
     }
 }

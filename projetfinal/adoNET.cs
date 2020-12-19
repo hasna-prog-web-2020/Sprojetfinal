@@ -8,7 +8,7 @@ using System.Data;
 
 namespace projetfinal
 {
-    class adoNET
+    class AdoNET
     {
        
 
@@ -28,9 +28,9 @@ namespace projetfinal
         public DataSet DsMagasin { get => dsMagasin; set => dsMagasin = value; }
 
         //Constructeur
-        public adoNET()
+        public AdoNET()
         {   //Changer cette chaine de connexion ici avant  d'exécuter votre programme
-            connectionString = "Data Source=WELSH\\MONSQL;Initial Catalog=BibliothèqueArticles;Integrated Security=True";
+            connectionString = "Data Source=WELSH\\MONSQL;Initial Catalog=BibliothèqueArticles;Integrated Security=True";//element different d'un compte à l'autre
             connection = new SqlConnection(connectionString);
             command = new SqlCommand();
             adapter = new SqlDataAdapter();
