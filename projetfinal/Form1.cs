@@ -24,10 +24,17 @@ namespace projetfinal
 
         private void firstPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form3 elc1 = new Form3();
+            elc1.MdiParent = this;
+            elc1.Show();
+
+        }
+
+        private void listeDesArticlesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             Form2 elc = new Form2();
             elc.MdiParent = this;
             elc.Show();
-
         }
     }
 }

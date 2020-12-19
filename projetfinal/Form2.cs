@@ -68,8 +68,23 @@ namespace projetfinal
             }
         }
 
+        private void label3_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach ( Client cl in InfoCompte.ListeClients)
+            if (textBox1.Text == cl.NomCompte)
+                {
+                    MessageBox.Show("il existe");
+                }
+        }
 
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

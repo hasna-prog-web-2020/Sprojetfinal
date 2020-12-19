@@ -30,13 +30,15 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.firstPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listeDesArticlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.firstPageToolStripMenuItem});
+            this.firstPageToolStripMenuItem,
+            this.listeDesArticlesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -46,9 +48,16 @@
             // firstPageToolStripMenuItem
             // 
             this.firstPageToolStripMenuItem.Name = "firstPageToolStripMenuItem";
-            this.firstPageToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.firstPageToolStripMenuItem.Text = "first page";
+            this.firstPageToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.firstPageToolStripMenuItem.Text = "création usagés";
             this.firstPageToolStripMenuItem.Click += new System.EventHandler(this.firstPageToolStripMenuItem_Click);
+            // 
+            // listeDesArticlesToolStripMenuItem
+            // 
+            this.listeDesArticlesToolStripMenuItem.Name = "listeDesArticlesToolStripMenuItem";
+            this.listeDesArticlesToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.listeDesArticlesToolStripMenuItem.Text = "liste des articles";
+            this.listeDesArticlesToolStripMenuItem.Click += new System.EventHandler(this.listeDesArticlesToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -72,6 +81,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem firstPageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listeDesArticlesToolStripMenuItem;
     }
 }
 

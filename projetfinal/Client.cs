@@ -10,16 +10,12 @@ namespace projetfinal
     {
 
         //Champs privés
-        private int num_client;
+        
         private string nom_compte;
         private string mots_passe;
 
         //Accesseurs (propriétés)
-        public int NumeroClient
-        {
-            get { return num_client; }
-            set { num_client = value; }
-        }
+       
         public string NomCompte
         {
             get { return nom_compte; }
@@ -33,15 +29,15 @@ namespace projetfinal
 
         public Client()
         {
-            num_client = 0;
+            
             nom_compte = "";
             mots_passe = "";
 
         }
 
-        public Client(string n, string p, char g, DateTime dt, string adr, string tel, string c, int numclient, string nmcompt, string mtspss) : base(n, p, g, dt, adr, tel, c)
+        public Client(string n, string p, string adr, string v, string pv, string tel, string nmcompt, string mtspss) : base(n, p, adr, v , pv, tel)
         {
-            num_client = numclient;
+            
             nom_compte = nmcompt;
             mots_passe = mtspss;
 
@@ -58,9 +54,8 @@ namespace projetfinal
             // copier les proprietés héritées  
             proprietes1.CopyTo(proprietes, 0);
             // compléter le tableau proprietes avec les propriétés de la classe fille
-            proprietes[7] = num_client.ToString();
-            proprietes[8] = nom_compte;
-            proprietes[9] = mots_passe;
+            proprietes[6] = nom_compte;
+            proprietes[7] = mots_passe;
             return proprietes;
 
         }
