@@ -36,5 +36,12 @@ namespace projetfinal
             elc.MdiParent = this;
             elc.Show();
         }
+
+        private void historiqueDachatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form4 elc2 = new Form4();
+            elc2.MdiParent = this;
+            elc2.Show();
+        }
     }
 }

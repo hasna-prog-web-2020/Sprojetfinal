@@ -26,7 +26,13 @@ namespace projetfinal
             listClients.Count();
         }*/
         private static List<Client> listClients;
-        
+        private static List<Achat> listAchats;
+
+        public static List<Achat> ListAchats
+        {
+            get { return listAchats; }
+            set { listAchats = value; }
+        }
         public static List<Client> ListeClients
         {
             get { return listClients; }
@@ -36,6 +42,7 @@ namespace projetfinal
         static InfoCompte()
         {
             listClients = new List<Client>();
+            listAchats = new List<Achat>();
         }
 
         public static int CompterNb()  // compte le nb de client dans la liste ??

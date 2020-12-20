@@ -144,7 +144,7 @@
             this.groupBox1.Size = new System.Drawing.Size(265, 170);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "ajout d\'article";
+            this.groupBox1.Text = "selection d\'article";
             // 
             // groupBox2
             // 

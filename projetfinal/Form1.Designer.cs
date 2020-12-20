@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.firstPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listeDesArticlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historiqueDachatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,7 +39,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.firstPageToolStripMenuItem,
-            this.listeDesArticlesToolStripMenuItem});
+            this.listeDesArticlesToolStripMenuItem,
+            this.historiqueDachatToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -58,6 +60,13 @@
             this.listeDesArticlesToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.listeDesArticlesToolStripMenuItem.Text = "liste des articles";
             this.listeDesArticlesToolStripMenuItem.Click += new System.EventHandler(this.listeDesArticlesToolStripMenuItem_Click);
+            // 
+            // historiqueDachatToolStripMenuItem
+            // 
+            this.historiqueDachatToolStripMenuItem.Name = "historiqueDachatToolStripMenuItem";
+            this.historiqueDachatToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
+            this.historiqueDachatToolStripMenuItem.Text = "historique d\'achat";
+            this.historiqueDachatToolStripMenuItem.Click += new System.EventHandler(this.historiqueDachatToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -82,6 +91,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem firstPageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listeDesArticlesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem historiqueDachatToolStripMenuItem;
     }
 }
 

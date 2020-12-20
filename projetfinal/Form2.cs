@@ -62,12 +62,13 @@ namespace projetfinal
                         + "description : " + row[1] + "\n"
                         + "Le prix unitaire: " + row[2] + "\n"+ "Le nombre en inventaire : " + row[3] + "\n"+ "Le nom du vendeur : " + row[4] + "\n",
                         "Résultat de la recherche", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
 
                 }
                 
             }
         }
-
+       
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -75,12 +76,69 @@ namespace projetfinal
 
         private void button2_Click(object sender, EventArgs e)
         {
+            /*
             foreach ( Client cl in InfoCompte.ListeClients)
-            if (textBox1.Text == cl.NomCompte)
-                {
-                    MessageBox.Show("il existe");
+            if (textBox1.Text != cl.NomCompte)
+            {
+                    MessageBox.Show("veuiller svp selectionner numéro d'usager");
+                    return;
+
+                }*/
+            /* foreach (DataRow row in Ado.DtArticles.Rows)
+             {
+
+                 if (row[0].ToString() != textBox2.Text)
+                 {
+
+                     MessageBox.Show("veuiller svp selectionner un no article");
+                     return;
+
+                 }
+
+             }*/
+
+
+            //gestion d'erreure s'il y a rien de rentré ou pas un int
+            try
+            {  //si le nbr rentré est plus petit le nbr rows dans le datagrid
+                if (int.Parse(textBox2.Text) <= Ado.DtArticles.Rows.Count)
+                {    //parcours tous les clients
+                    foreach (Client cl in InfoCompte.ListeClients)
+                        if (textBox1.Text == cl.NomCompte)
+                        {
+                            MessageBox.Show("yessss");
+
+                            foreach (DataRow row in Ado.DtArticles.Rows)
+                            {
+                                //Si le numéro de l'étudiant existe dans la table, Afficher les informations de l'étudiant 
+                                if (row[0].ToString() == textBox2.Text)
+                                {
+                                    MessageBox.Show("Le numéro de référence : " + row[0] + "\n"
+                                        + "description : " + row[1] + "\n"
+                                        + "Le prix unitaire: " + row[2] + "\n" + "Le nombre en inventaire : " + row[3] + "\n" + "Le nom du vendeur : " + row[4] + "\n",
+                                        "Résultat de la recherche", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                                    Achat act = new Achat(row[1].ToString(), 1, float.Parse(row[2].ToString()), textBox1.Text);
+                                    InfoCompte.ListAchats.Add(act);
+
+                                }
+
+                            }
+
+
+                            return;
+
+                        }
+
                 }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Erreur"); }
+
         }
+
+
+   
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
