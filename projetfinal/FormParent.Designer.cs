@@ -1,6 +1,6 @@
 ﻿namespace projetfinal
 {
-    partial class Form1
+    partial class FormParent
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -50,25 +50,25 @@
             // firstPageToolStripMenuItem
             // 
             this.firstPageToolStripMenuItem.Name = "firstPageToolStripMenuItem";
-            this.firstPageToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
-            this.firstPageToolStripMenuItem.Text = "création usagés";
+            this.firstPageToolStripMenuItem.Size = new System.Drawing.Size(113, 20);
+            this.firstPageToolStripMenuItem.Text = "Création d\'usagés";
             this.firstPageToolStripMenuItem.Click += new System.EventHandler(this.firstPageToolStripMenuItem_Click);
             // 
             // listeDesArticlesToolStripMenuItem
             // 
             this.listeDesArticlesToolStripMenuItem.Name = "listeDesArticlesToolStripMenuItem";
-            this.listeDesArticlesToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
-            this.listeDesArticlesToolStripMenuItem.Text = "liste des articles";
+            this.listeDesArticlesToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
+            this.listeDesArticlesToolStripMenuItem.Text = "Liste des articles";
             this.listeDesArticlesToolStripMenuItem.Click += new System.EventHandler(this.listeDesArticlesToolStripMenuItem_Click);
             // 
             // historiqueDachatToolStripMenuItem
             // 
             this.historiqueDachatToolStripMenuItem.Name = "historiqueDachatToolStripMenuItem";
-            this.historiqueDachatToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
-            this.historiqueDachatToolStripMenuItem.Text = "historique d\'achat";
+            this.historiqueDachatToolStripMenuItem.Size = new System.Drawing.Size(121, 20);
+            this.historiqueDachatToolStripMenuItem.Text = "Historique d\'achats";
             this.historiqueDachatToolStripMenuItem.Click += new System.EventHandler(this.historiqueDachatToolStripMenuItem_Click);
             // 
-            // Form1
+            // FormParent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -76,7 +76,7 @@
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "FormParent";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);

@@ -30,7 +30,7 @@ namespace projetfinal
         //Constructeur
         public AdoNET()
         {   //Changer cette chaine de connexion ici avant  d'exécuter votre programme
-            connectionString = "Data Source=WELSH\\MONSQL;Initial Catalog=BibliothèqueArticles;Integrated Security=True";//element different d'un compte à l'autre
+            connectionString = "Data Source=DESKTOP-C8ESKB6;Initial Catalog=BibliothèqueArticles;Integrated Security=True";//element different d'un compte à l'autre
             connection = new SqlConnection(connectionString);
             command = new SqlCommand();
             adapter = new SqlDataAdapter();

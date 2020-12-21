@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace projetfinal
 {
-    public partial class Form2 : Form
+    public partial class FormAchat : Form
     {
-        public Form2()
+        public FormAchat()
         {
             InitializeComponent();
         }
@@ -25,7 +25,7 @@ namespace projetfinal
         {
             // Instancier un objet Ado
              Ado = new AdoNET();
-            //Début Query
+            //Début Query 
             //Écriture de la requête Sql 
             string Query = "SELECT * FROM Articles";
             //Préparation de l'objet command
@@ -34,12 +34,12 @@ namespace projetfinal
             Ado.Command.Connection = Ado.Connection;
             //Préparation de l'objet Adapter
             Ado.Adapter.SelectCommand = Ado.Command;
-            //Remplir le DataSet Ad.DsMagasin avec la résultat de la requête Quert (Dans ce cas le résultat est la table Etudiant) 
+            //Remplir le DataSet Ad.DsMagasin avec la résultat de la requête Query
             Ado.Adapter.Fill(Ado.DsMagasin);
             //Fin Query
             //la DataTable StArticle est égale à la première table (indice 0) du DataSet DsMagasin 
             Ado.DtArticles = Ado.DsMagasin.Tables[0];
-            //Afficher la table Ado.DtEtudiant dans notre dataGridView
+            //Afficher la table Ado.DtArticles dans notre dataGridView
             this.dataGridView1.DataSource = Ado.DtArticles;
 
         }
@@ -55,7 +55,7 @@ namespace projetfinal
             //Parcourir les lignes du DataTable DtEtudiants
             foreach (DataRow row in Ado.DtArticles.Rows)
             {
-                //Si le numéro de l'étudiant existe dans la table, Afficher les informations de l'étudiant 
+                //Si le numéro de l'article existe dans la table, Afficher les informations de l'article
                 if (row[0].ToString() == textBoxRecherche.Text)
                 {
                     MessageBox.Show("Le numéro de référence : " + row[0] + "\n"
@@ -76,71 +76,59 @@ namespace projetfinal
 
         private void button2_Click(object sender, EventArgs e)
         {
-            /*
-            foreach ( Client cl in InfoCompte.ListeClients)
-            if (textBox1.Text != cl.NomCompte)
-            {
-                    MessageBox.Show("veuiller svp selectionner numéro d'usager");
-                    return;
-
-                }*/
-            /* foreach (DataRow row in Ado.DtArticles.Rows)
-             {
-
-                 if (row[0].ToString() != textBox2.Text)
-                 {
-
-                     MessageBox.Show("veuiller svp selectionner un no article");
-                     return;
-
-                 }
-
-             }*/
-
-
-            //gestion d'erreure s'il y a rien de rentré ou pas un int
+            //Gestion d'erreur s'il y a rien de rentré ou pas de int
             try
-            {  //si le nbr rentré est plus petit le nbr rows dans le datagrid
-                if (int.Parse(textBox2.Text) <= Ado.DtArticles.Rows.Count)
+            {  //Vérifie si le nbr entré est plus petit que le nbr de rows dans le Datagrid
+                if (int.Parse(textBox2.Text) <= Ado.DtArticles.Rows.Count && int.Parse(textBox2.Text) > 0)
                 {    //parcours tous les clients
                     foreach (Client cl in InfoCompte.ListeClients)
-                        if (textBox1.Text == cl.NomCompte)
+                    {
+                        if (textBox1.Text == cl.NomCompte && textBox3.Text == cl.MotsPasse)
                         {
-                            MessageBox.Show("yessss");
-
                             foreach (DataRow row in Ado.DtArticles.Rows)
                             {
-                                //Si le numéro de l'étudiant existe dans la table, Afficher les informations de l'étudiant 
-                                if (row[0].ToString() == textBox2.Text)
+                                //Si le numéro de l'article existe dans la table, Afficher les informations de l'article
+                                if (row[0].ToString() == textBox2.Text && Convert.ToInt32(row[3]) > 0)
                                 {
                                     MessageBox.Show("Le numéro de référence : " + row[0] + "\n"
-                                        + "description : " + row[1] + "\n"
+                                        + "Description : " + row[1] + "\n"
                                         + "Le prix unitaire: " + row[2] + "\n" + "Le nombre en inventaire : " + row[3] + "\n" + "Le nom du vendeur : " + row[4] + "\n",
                                         "Résultat de la recherche", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-                                    Achat act = new Achat(row[1].ToString(), 1, float.Parse(row[2].ToString()), textBox1.Text);
-                                    InfoCompte.ListAchats.Add(act);
-
+                                    Achat act = new Achat(row[1].ToString(), 1, float.Parse(row[2].ToString()), textBox1.Text); //Création de l'achat
+                                    InfoCompte.ListAchats.Add(act); //Ajout à la liste d'historique d'achat pour l'utilisateur
+                                    MessageBox.Show("Votre achat a été effectué avec succès, merci d'avoir magasiné avec nous!  À la prochaine!");
+                                    row[3] = Convert.ToInt32(row[3])-1;
+                                    break;
                                 }
-
+                                else if (row[0].ToString() == textBox2.Text && Convert.ToInt32(row[3]) == 0)
+                                {
+                                    MessageBox.Show("L'article n'est pas en inventaire.");
+                                    break;
+                                }
                             }
-
-
-                            return;
-
                         }
-
+                        break;
+                    }
+                    MessageBox.Show("Le nom d'utilisateur ou le mot de passe est incorrecte!"); //Message d'erreur si le compte ou le mot de passe est incorrecte.
+                }
+                else
+                {
+                    MessageBox.Show("Vous devez entrer un numéro valide!"); //Message d'erreur si le numéro de l'objet est invalide (20 < num < 0)
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Erreur"); }
-
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Erreur!"); } //Message d'erreur pour toute autre erreur avec le programme que le try catch va détecter.
         }
 
 
    
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
         {
 
         }

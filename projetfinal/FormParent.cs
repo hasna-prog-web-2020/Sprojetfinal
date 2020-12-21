@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace projetfinal
 {
-    public partial class Form1 : Form
+    public partial class FormParent : Form
     {
-        public Form1()
+        public FormParent()
         {
             InitializeComponent();
         }
@@ -24,7 +24,7 @@ namespace projetfinal
 
         private void firstPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form3 elc1 = new Form3();
+            FormAjoutCompte elc1 = new FormAjoutCompte();
             elc1.MdiParent = this;
             elc1.Show();
 
@@ -32,14 +32,14 @@ namespace projetfinal
 
         private void listeDesArticlesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form2 elc = new Form2();
+            FormAchat elc = new FormAchat();
             elc.MdiParent = this;
             elc.Show();
         }
 
         private void historiqueDachatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form4 elc2 = new Form4();
+            FormHistorique elc2 = new FormHistorique();
             elc2.MdiParent = this;
             elc2.Show();
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace projetfinal
 {
-    public class Client : Perssone
+    public class Client : Personne
     {
 
         //Champs privés

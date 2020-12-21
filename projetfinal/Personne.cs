@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace projetfinal
 {
-    public class Perssone
+    public class Personne
     {
         // Déclaration des champs privés
         private string nom;
@@ -48,7 +48,7 @@ namespace projetfinal
         }
 
         //Constructeur par défaut
-        public Perssone()
+        public Personne()
         {
             nom = "";
             prenom = "";
@@ -58,7 +58,7 @@ namespace projetfinal
             num_telephone = "";
         }
         //Constructeur par paramètres
-        public Perssone(string n, string p, string adr, string v, string pv, string tel)
+        public Personne(string n, string p, string adr, string v, string pv, string tel)
         {
             nom = n;
             prenom = p;
